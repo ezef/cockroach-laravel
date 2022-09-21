@@ -16,6 +16,7 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
+    'name' => env('DB_DATABASE', 'forge'),
 
     /*
     |--------------------------------------------------------------------------
