@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/patients', [\App\Http\Controllers\ProofOfConceptController::class, 'getAllPatients']);
+Route::get('/patients/with-practices', [\App\Http\Controllers\ProofOfConceptController::class, 'getAllPatientsWithMedicalPractices']);
+
+Route::get('/eu/patients', [\App\Http\Controllers\ProofOfConceptController::class, 'getEUPatients']);
+Route::get('/eu/patients/with-practices', [\App\Http\Controllers\ProofOfConceptController::class, 'getEUPatientsWithMedicalPractices']);
+
+Route::get('/non-eu/patients', [\App\Http\Controllers\ProofOfConceptController::class, 'getNonEUPatients']);
+Route::get('/non-eu/patients/with-practices', [\App\Http\Controllers\ProofOfConceptController::class, 'getNonEUPatientsWithMedicalPractices']);
+
+Route::get('/medical-practices', [\App\Http\Controllers\ProofOfConceptController::class, 'getMedicalPractices']);
+
+Route::get('/countries', [\App\Http\Controllers\ProofOfConceptController::class, 'getCountries']);
