@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Hospital;
 use App\Models\MedicalPractice;
 use App\Models\Patient;
 use Illuminate\Database\Eloquent\Builder;
@@ -62,5 +63,25 @@ class ProofOfConceptController extends Controller
     public function getCountries()
     {
         return Country::all();
+    }
+
+    public function createPatient() {
+        return Patient::factory()
+            ->for(Country::inRandomOrder()->first())
+            ->has(MedicalPractice::factory()->count(3)->for(Hospital::inRandomOrder()->first()))
+            ->create();
+    }
+
+    public function addMedicalPractice(){
+        return MedicalPractice::factory()
+            ->for(Hospital::inRandomOrder()->first())
+            ->for(Patient::inRandomOrder()->first())
+            ->create();
+    }
+
+    public function addHospital() {
+        return Hospital::create([
+            'name' => fake()->company,
+        ]);
     }
 }

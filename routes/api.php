@@ -30,3 +30,7 @@ Route::get('/non-eu/patients/with-practices', [\App\Http\Controllers\ProofOfConc
 Route::get('/medical-practices', [\App\Http\Controllers\ProofOfConceptController::class, 'getMedicalPractices']);
 
 Route::get('/countries', [\App\Http\Controllers\ProofOfConceptController::class, 'getCountries']);
+
+Route::post('/patients', [\App\Http\Controllers\ProofOfConceptController::class, 'createPatient']);
+Route::post('/medical-practices', [\App\Http\Controllers\ProofOfConceptController::class, 'addMedicalPractice']);
+Route::post('/hospital', [\App\Http\Controllers\ProofOfConceptController::class, 'addHospital']);
