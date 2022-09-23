@@ -76,7 +76,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
-            'sslmode' => 'verify-full',
+            'sslmode' => env('DB_SSL_MODE'),
             'cluster' => env('DB_CLUSTER_NAME'),
         ],
 
